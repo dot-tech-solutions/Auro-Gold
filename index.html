@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auro Gold - 24K 99.9% Digital Gold, Custom Jewelry Studio & Bullion Platform</title>
+  
+  <!-- Modern Typography Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="web.css">
+  <link rel="stylesheet" href="extensions.css">
+  <link rel="stylesheet" href="toast.css">
+</head>
+<body>
+
+  <!-- 1. TOP LIVE MARKET TICKER BAR -->
+  <div class="top-ticker-bar">
+    <div class="ticker-inner">
+      <div class="ticker-trust">
+        <span><i class="fa-solid fa-shield-halved"></i> 100% Insured by Brink's India</span>
+        <span><i class="fa-solid fa-certificate"></i> BIS Hallmarked & IDBI Trustee</span>
+        <span><i class="fa-solid fa-gem"></i> Bespoke Jewelry Studio Active</span>
+      </div>
+      <div class="ticker-rates">
+        <div class="rate-item">
+          <span class="live-dot"></span>
+          <span class="label">24K 999.9 PURE:</span>
+          <span class="val">₹<span id="tickerGoldRate">7,248.50</span>/gm</span>
+          <span class="delta positive"><i class="fa-solid fa-arrow-trend-up"></i> +1.42%</span>
+        </div>
+        <div class="rate-item">
+          <span class="label">22K 916:</span>
+          <span class="val">₹6,645.00/gm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MAIN WEBSITE NAVBAR -->
+  <header class="main-header">
+    <div class="nav-container">
+      <div class="brand-wrap" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <div class="brand-emblem"><i class="fa-solid fa-gem"></i></div>
+        <div class="brand-text">
+          <span class="brand-title">AURO GOLD</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#buy-section" class="nav-link"><i class="fa-solid fa-coins"></i> Buy & Sell</a>
+        <a href="#chart-section" class="nav-link"><i class="fa-solid fa-chart-line"></i> Live Rates</a>
+        <a href="#sip-section" class="nav-link"><i class="fa-solid fa-repeat"></i> Gold SIP</a>
+        <a href="#jewelry-section" class="nav-link"><i class="fa-solid fa-ring"></i> Catalog</a>
+        <a href="#custom-studio-section" class="nav-link" style="color:var(--gold-light);"><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Studio</a>
+        <a href="#consulting-section" class="nav-link"><i class="fa-solid fa-user-tie"></i> Consultation</a>
+      </nav>
+
+      <div class="nav-user-actions">
+        <!-- Interactive Vault Pill displaying live balance -->
+        <div class="user-vault-pill" onclick="window.AuroWeb.openVaultModal()" title="View your vault balance">
+          <div class="uv-avatar" id="navAvatar">SG</div>
+          <div class="uv-meta">
+            <span class="uv-label" id="navUserLabel">My Vault</span>
+            <span class="uv-val"><span id="navVaultGrams">12.4580</span> gms</span>
+          </div>
+          <i class="fa-solid fa-chevron-down" style="font-size:0.7rem; color:#D4A017;"></i>
+        </div>
+
+        <!-- USER & EMPLOYEE LOGIN BUTTONS -->
+        <div class="auth-nav-group" id="authNavButtons">
+          <button class="btn-auth" onclick="window.AuroWeb.openLoginModal('user')">
+            <i class="fa-solid fa-user"></i> User Login
+          </button>
+          <button class="btn-auth employee" onclick="window.AuroWeb.openLoginModal('employee')">
+            <i class="fa-solid fa-user-shield"></i> Employee Portal
+          </button>
+        </div>
+
+        <button class="btn-header-buy" onclick="window.AuroWeb.scrollToBuy()">
+          <i class="fa-solid fa-bolt"></i> Instant Buy
+        </button>
+
+        <button class="mobile-menu-btn" onclick="window.AuroWeb.toggleMobileMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. HERO SECTION WITH WORKING END-TO-END TRADING CALCULATOR -->
+  <section class="hero-section" id="buy-section">
+    <div class="hero-grid">
+      
+      <!-- Left Hero Content -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fa-solid fa-medal"></i> IDBI TRUSTEESHIP • BRINK'S CUSTODY
+        </div>
+        <h1 class="hero-title">
+          Invest In Pure <span class="highlight-gold">24K Digital Gold</span> & Design Bespoke Jewelry
+        </h1>
+        <p class="hero-desc">
+          Buy, sell, or accumulate 99.99% pure institutional gold at live MCX spot prices. Customize your dream gold ornaments online with 3D studio controls or book a personalized 1-on-1 certified gemologist consultation.
+        </p>
+
+        <div class="hero-stats-row">
+          <div class="hero-stat-item">
+            <strong>₹420+ Cr</strong>
+            <span>Gold Vaulted Safely</span>
+          </div>
+          <div class="hero-stat-item">
+            <strong>850,000+</strong>
+            <span>Verified Investors</span>
+          </div>
+          <div class="hero-stat-item">
+            <strong>100%</strong>
+            <span>Insured & Hallmarked</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Interactive End-to-End Trading Terminal -->
+      <div class="hero-widget-card">
+        <div class="widget-tabs">
+          <button class="w-tab active" id="tabBuyGold" onclick="window.AuroWeb.setTradeAction('buy')">
+            <i class="fa-solid fa-arrow-down-left"></i> Buy 24K Gold
+          </button>
+          <button class="w-tab" id="tabSellGold" onclick="window.AuroWeb.setTradeAction('sell')">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Sell from Vault
+          </button>
+        </div>
+
+        <div class="widget-body">
+          <!-- Live Price Banner -->
+          <div class="live-price-banner">
+            <div class="lpb-left">
+              <span class="lpb-tag"><span class="live-dot"></span> <span id="tradeActionLabel">LIVE BUYING RATE</span></span>
+              <div class="lpb-price">₹<span id="widgetRate">7,248.50</span> <small>/gm</small></div>
+            </div>
+            <div class="lpb-timer">
+              <span>Price locked for:</span><br>
+              <strong id="widgetLockTimer">04:45 min</strong>
+            </div>
+          </div>
+
+          <!-- Unit Mode (Rupees vs Grams) -->
+          <div class="unit-mode-toggle" id="unitModeToggleRow">
+            <button class="um-btn active" id="btnModeRupees" onclick="window.AuroWeb.setUnitMode('rupees')">In Rupees (₹)</button>
+            <button class="um-btn" id="btnModeGrams" onclick="window.AuroWeb.setUnitMode('grams')">In Grams (g)</button>
+          </div>
+
+          <!-- Amount Input Box -->
+          <div class="amount-input-box">
+            <span class="aib-prefix" id="inputPrefix">₹</span>
+            <input type="number" id="tradeInput" value="1000" min="10" step="50" oninput="window.AuroWeb.calcTrade()">
+          </div>
+
+          <div class="equiv-calc-note" id="equivNote">
+            You will receive approx <strong id="calcGramsResult">0.1380 grams</strong> of pure 24K Gold
+          </div>
+
+          <!-- Quick Preset Chips -->
+          <div class="preset-chips-row" id="presetChipsContainer">
+            <button class="p-chip" onclick="window.AuroWeb.setPresetAmount(500)">+₹500</button>
+            <button class="p-chip active" onclick="window.AuroWeb.setPresetAmount(1000)">₹1,000</button>
+            <button class="p-chip" onclick="window.AuroWeb.setPresetAmount(2500)">₹2,500</button>
+            <button class="p-chip" onclick="window.AuroWeb.setPresetAmount(5000)">₹5,000</button>
+          </div>
+
+          <!-- Breakdown Ledger -->
+          <div class="calc-breakdown">
+            <div class="cb-row">
+              <span id="labelRow1">Gold Value:</span>
+              <span id="valRow1">₹970.87</span>
+            </div>
+            <div class="cb-row" id="gstRow">
+              <span>Govt GST (3%):</span>
+              <span id="valGst">₹29.13</span>
+            </div>
+            <div class="cb-row">
+              <span>Locker & Insurance:</span>
+              <span class="text-free">FREE (Lifetime)</span>
+            </div>
+            <div class="cb-row total">
+              <span id="labelTotal">Total Payable:</span>
+              <span id="valTotalPayable">₹1,000.00</span>
+            </div>
+          </div>
+
+          <!-- Action Button -->
+          <button class="btn-primary-action" id="btnExecuteTrade" onclick="window.AuroWeb.initiatePayment()">
+            <i class="fa-solid fa-lock"></i> <span id="btnTradeText">Pay ₹1,000 & Deposit to Vault</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. REAL-TIME INTERACTIVE CHART & ANALYTICS -->
+  <section class="web-section" id="chart-section">
+    <div class="section-container">
+      <div class="section-head">
+        <span class="section-badge">Live Market Analytics</span>
+        <h2 class="section-title-large">Real-Time 24K Gold Spot Pricing</h2>
+        <p class="section-subtitle-text">Connected directly to institutional bullion exchanges and MCX with zero markup.</p>
+      </div>
+
+      <div class="chart-grid-layout">
+        <div class="chart-main-box">
+          <div class="chart-header-row">
+            <div class="chr-price-box">
+              <div class="chr-val">₹<span id="analyticsRate">7,248.50</span> <small>/gm</small></div>
+              <div class="chr-meta"><i class="fa-solid fa-arrow-trend-up"></i> +₹102.50 (+1.42%) Today</div>
+            </div>
+
+            <div class="chart-timeframe-pills">
+              <button class="tf-chip active" onclick="window.AuroWeb.switchChart('1D', this)">1D</button>
+              <button class="tf-chip" onclick="window.AuroWeb.switchChart('1W', this)">1W</button>
+              <button class="tf-chip" onclick="window.AuroWeb.switchChart('1M', this)">1M</button>
+              <button class="tf-chip" onclick="window.AuroWeb.switchChart('1Y', this)">1Y</button>
+              <button class="tf-chip" onclick="window.AuroWeb.switchChart('5Y', this)">5Y</button>
+            </div>
+          </div>
+
+          <svg viewBox="0 0 680 240" class="web-chart-svg" id="dynamicChartSvg">
+            <defs>
+              <linearGradient id="webChartGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#D4A017" stop-opacity="0.45"/>
+                <stop offset="100%" stop-color="#D4A017" stop-opacity="0.0"/>
+              </linearGradient>
+            </defs>
+            <line x1="0" y1="50" x2="680" y2="50" stroke="#E5ECE7" stroke-dasharray="4"/>
+            <line x1="0" y1="110" x2="680" y2="110" stroke="#E5ECE7" stroke-dasharray="4"/>
+            <line x1="0" y1="170" x2="680" y2="170" stroke="#E5ECE7" stroke-dasharray="4"/>
+            <path id="chartAreaPath" d="M 0,180 Q 120,165 240,140 T 450,90 T 680,40 L 680,240 L 0,240 Z" fill="url(#webChartGrad)"/>
+            <path id="chartLinePath" d="M 0,180 Q 120,165 240,140 T 450,90 T 680,40" fill="none" stroke="#D4A017" stroke-width="3.5" stroke-linecap="round"/>
+            <circle cx="680" cy="40" r="6" fill="#D4A017" stroke="#081B13" stroke-width="2.5"/>
+          </svg>
+        </div>
+
+        <div class="chart-sidebar-stats">
+          <div>
+            <div class="stat-metric-card">
+              <span class="sm-label">24H High</span>
+              <span class="sm-val">₹7,260.00 /g</span>
+            </div>
+            <div class="stat-metric-card">
+              <span class="sm-label">24H Low</span>
+              <span class="sm-val">₹7,146.00 /g</span>
+            </div>
+            <div class="stat-metric-card">
+              <span class="sm-label">52-Week High</span>
+              <span class="sm-val">₹7,420.00 /g</span>
+            </div>
+            <div class="stat-metric-card">
+              <span class="sm-label">5-Year Gold Return</span>
+              <span class="sm-val" style="color:var(--green-gain);">+78.4%</span>
+            </div>
+          </div>
+
+          <div class="vault-security-callout">
+            <i class="fa-solid fa-vault"></i>
+            <div>
+              <strong>Backed Gram-for-Gram</strong>
+              <p>For every rupee you buy, identical weight of physical 24K 999.9 gold bullion is vaulted with Brink's India.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. BESPOKE CUSTOM JEWELRY STUDIO (NEW SECTION) -->
+  <section class="web-section bg-light-tint" id="custom-studio-section">
+    <div class="section-container">
+      <div class="section-head">
+        <span class="section-badge">Craft Your Masterpiece</span>
+        <h2 class="section-title-large">Interactive Custom Jewelry Studio</h2>
+        <p class="section-subtitle-text">Configure metal purity, gemstones, weights, and laser engravings with real-time pricing and 3D preview.</p>
+      </div>
+
+      <div class="design-studio-grid">
+        <!-- Visual Studio Display -->
+        <div class="studio-preview-box">
+          <span class="studio-watermark"><i class="fa-solid fa-compass-drafting"></i> 3D CONFIGURATOR</span>
+          
+          <div class="dynamic-jewel-render">
+            <div class="jewel-canvas-mock gold-yellow" id="studioMockCanvas">
+              <i class="fa-solid fa-ring" id="studioJewelIcon"></i>
+              <i class="fa-solid fa-diamond gem-accent-overlay" id="gemOverlayIcon"></i>
+            </div>
+          </div>
+
+          <div class="studio-specs-summary">
+            <div class="spec-col">
+              <span id="specItemName">Solitaire Diamond Ring</span>
+              <strong id="specEstimatedPrice">₹48,500</strong>
+            </div>
+            <div class="spec-col">
+              <span>Required Gold</span>
+              <strong id="specRequiredGold">6.25 gms</strong>
+            </div>
+            <div class="spec-col">
+              <span>Delivery Time</span>
+              <strong style="color:var(--green-gain);">7 Business Days</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customizer Studio Controls -->
+        <div class="studio-controls-box">
+          <h3><i class="fa-solid fa-sliders" style="color:var(--gold-primary);"></i> Customize Design Specs</h3>
+
+          <!-- Jewelry Type -->
+          <div class="control-group">
+            <label>1. Jewelry Category</label>
+            <div class="options-pill-grid">
+              <button class="opt-pill-btn active" onclick="window.AuroWeb.setStudioType('ring', 'fa-ring', this)">
+                <i class="fa-solid fa-ring"></i> Royal Ring
+              </button>
+              <button class="opt-pill-btn" onclick="window.AuroWeb.setStudioType('pendant', 'fa-gem', this)">
+                <i class="fa-solid fa-gem"></i> Pendant
+              </button>
+              <button class="opt-pill-btn" onclick="window.AuroWeb.setStudioType('bangle', 'fa-circle-notch', this)">
+                <i class="fa-solid fa-circle-notch"></i> Kada / Bangle
+              </button>
+            </div>
+          </div>
+
+          <!-- Metal Color & Purity -->
+          <div class="control-group">
+            <label>2. Gold Purity & Tone</label>
+            <div class="options-pill-grid">
+              <button class="opt-pill-btn active" onclick="window.AuroWeb.setStudioMetal('gold-yellow', 1.0, this)">
+                <i class="fa-solid fa-sun" style="color:#EAB308;"></i> 24K Yellow Gold
+              </button>
+              <button class="opt-pill-btn" onclick="window.AuroWeb.setStudioMetal('gold-rose', 0.94, this)">
+                <i class="fa-solid fa-heart" style="color:#F43F5E;"></i> 22K Rose Gold
+              </button>
+              <button class="opt-pill-btn" onclick="window.AuroWeb.setStudioMetal('gold-white', 0.96, this)">
+                <i class="fa-solid fa-snowflake" style="color:#94A3B8;"></i> 18K White Gold
+              </button>
+            </div>
+          </div>
+
+          <!-- Gemstone Selection -->
+          <div class="control-group">
+            <label>3. Center Stone / Accent</label>
+            <div class="options-pill-grid">
+              <button class="opt-pill-btn active" onclick="window.AuroWeb.setStudioGem('diamond', 15000, this)">
+                <i class="fa-solid fa-diamond" style="color:#38BDF8;"></i> VVS Diamond
+              </button>
+              <button class="opt-pill-btn" onclick="window.AuroWeb.setStudioGem('ruby', 8500, this)">
+                <i class="fa-solid fa-gem" style="color:#EF4444;"></i> Burma Ruby
+              </button>
+              <button class="opt-pill-btn" onclick="window.AuroWeb.setStudioGem('none', 0, this)">
+                <i class="fa-solid fa-ban"></i> Pure Gold Only
+              </button>
+            </div>
+          </div>
+
+          <!-- Custom Laser Engraving -->
+          <div class="control-group">
+            <label>4. Personalized Laser Engraving</label>
+            <div class="engrave-input-row">
+              <input type="text" id="engraveInput" placeholder="e.g. Santhosh & Priya 2026" maxlength="20">
+              <span>MAX 20 CHARS</span>
+            </div>
+          </div>
+
+          <button class="btn-primary-action" onclick="window.AuroWeb.submitCustomDesignOrder()">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Order Custom Creation (Pay with Vault Gold)
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 1-ON-1 JEWELRY CONSULTATION SECTION (NEW SECTION) -->
+  <section class="web-section" id="consulting-section">
+    <div class="section-container">
+      <div class="consulting-grid">
+        <div>
+          <span class="section-badge">Expert Advisory</span>
+          <h2 class="section-title-large">Book 1-on-1 Certified Gemologist Consultation</h2>
+          <p class="section-subtitle-text">
+            Consult virtually over private video or at our VIP private boutique. Get expert advice on bespoke bridal sets, heirloom redesigns, and high-value bullion portfolios.
+          </p>
+
+          <div class="consulting-perks">
+            <div class="c-perk">
+              <i class="fa-solid fa-video"></i>
+              <div>
+                <strong>30-Minute HD Video or In-Person Session</strong>
+                <span>Private screen sharing with CAD jewelry masters to finalize your design sketches.</span>
+              </div>
+            </div>
+            <div class="c-perk">
+              <i class="fa-solid fa-scale-balanced"></i>
+              <div>
+                <strong>Free Old Gold Valuation & Hallmarking Audit</strong>
+                <span>Exchange or melt existing ornaments at 100% fair bullion market value without deductions.</span>
+              </div>
+            </div>
+            <div class="c-perk">
+              <i class="fa-solid fa-certificate"></i>
+              <div>
+                <strong>IGI & GIA Certified Specialists</strong>
+                <span>Direct guidance from master craftsmen with 25+ years in royal heritage jewelry.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Consultation Booking Form Card -->
+        <div class="consultation-form-card">
+          <h3><i class="fa-regular fa-calendar-check" style="color:var(--gold-primary);"></i> Schedule Consultation</h3>
+          
+          <div class="form-row-2">
+            <div class="form-group-custom">
+              <label>Your Name</label>
+              <input type="text" id="consultName" placeholder="Santhosh G" value="Santhosh G">
+            </div>
+            <div class="form-group-custom">
+              <label>Phone Number</label>
+              <input type="tel" id="consultPhone" placeholder="+91 98765 43210" value="+91 98765 43210">
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group-custom">
+              <label>Consultation Mode</label>
+              <select id="consultMode">
+                <option value="video">Google Meet / WhatsApp Video Call</option>
+                <option value="store">In-Store VIP Lounge (Bengaluru Flagship)</option>
+                <option value="phone">Private Phone Call</option>
+              </select>
+            </div>
+            <div class="form-group-custom">
+              <label>Preferred Date</label>
+              <input type="date" id="consultDate" value="2026-10-25">
+            </div>
+          </div>
+
+          <div class="form-group-custom">
+            <label>Interest / Requirements</label>
+            <textarea id="consultNotes" rows="3" placeholder="Tell us about the design you wish to craft, bridal jewelry, or gold weight preference..."></textarea>
+          </div>
+
+          <button class="btn-primary-action" onclick="window.AuroWeb.bookConsultation()">
+            <i class="fa-solid fa-check"></i> Confirm Consultation Slot (Free)
+          </button>
+        </div>
+
+      <!-- ===== EMPLOYEE DIRECTORY & LIVE PRICE PANEL ===== -->
+      <div class="employee-directory-section">
+        <div class="emp-dir-header">
+          <h3><i class="fa-solid fa-users" style="color:var(--gold-primary);"></i> Authorized Auro Gold Specialists</h3>
+          <p>Connect directly with our certified gemologists, account managers, and sales executives for personalized service &amp; live price quotes.</p>
+        </div>
+
+        <!-- Live Buy/Sell Rate Panel -->
+        <div class="consult-rate-panel">
+          <div class="crp-rate-item buy">
+            <span class="crp-label"><i class="fa-solid fa-arrow-down"></i> BUY PRICE</span>
+            <span class="crp-val">&#8377;<span id="consultBuyRate">7,248.50</span></span>
+            <span class="crp-sub">per gram 24K 999.9</span>
+          </div>
+          <div class="crp-divider"></div>
+          <div class="crp-rate-item sell">
+            <span class="crp-label"><i class="fa-solid fa-arrow-up"></i> SELL PRICE</span>
+            <span class="crp-val">&#8377;<span id="consultSellRate">7,210.00</span></span>
+            <span class="crp-sub">per gram &mdash; bank credit</span>
+          </div>
+          <div class="crp-divider"></div>
+          <div class="crp-rate-item spread">
+            <span class="crp-label"><i class="fa-solid fa-arrows-left-right"></i> SPREAD</span>
+            <span class="crp-val" id="consultSpread">&#8377;38.50</span>
+            <span class="crp-sub">buy-sell difference</span>
+          </div>
+          <div class="crp-divider"></div>
+          <div class="crp-rate-item gold-dark">
+            <span class="crp-label"><i class="fa-solid fa-hammer"></i> MAKING CHARGES</span>
+            <span class="crp-val">12-16%</span>
+            <span class="crp-sub">varies by design complexity</span>
+          </div>
+        </div>
+
+        <!-- Quick Price Calculator -->
+        <div class="consult-price-calc">
+          <h4><i class="fa-solid fa-calculator" style="color:var(--gold-primary);"></i> Quick Price Estimator</h4>
+          <div class="cpc-inputs">
+            <div class="form-group-custom">
+              <label>Gold Weight (grams)</label>
+              <input type="number" id="consultGrams" value="10" min="0.1" step="0.1" oninput="window.AuroWeb.calcConsultPrice()">
+            </div>
+            <div class="form-group-custom">
+              <label>Transaction Type</label>
+              <select id="consultTxType" onchange="window.AuroWeb.calcConsultPrice()">
+                <option value="buy">Buy Gold (+ 3% GST)</option>
+                <option value="sell">Sell Gold (Instant Bank)</option>
+                <option value="jewelry">Jewelry Order (+ Making Charges)</option>
+              </select>
+            </div>
+            <div class="form-group-custom">
+              <label>Gold Purity</label>
+              <select id="consultPurity" onchange="window.AuroWeb.calcConsultPrice()">
+                <option value="1.0">24K 999.9 Pure</option>
+                <option value="0.9167">22K 916 Hallmarked</option>
+                <option value="0.75">18K Gold</option>
+              </select>
+            </div>
+          </div>
+          <div class="cpc-result">
+            <div class="cpc-row">
+              <span id="cpcGoldLabel">Gold Value (10g x rate):</span>
+              <span id="cpcGoldVal">&#8377;72,485.00</span>
+            </div>
+            <div class="cpc-row" id="cpcGstRow">
+              <span>GST (3%):</span>
+              <span id="cpcGst">&#8377;2,174.55</span>
+            </div>
+            <div class="cpc-row" id="cpcMakingRow" style="display:none;">
+              <span>Making Charges (14%):</span>
+              <span id="cpcMaking">&#8377;10,147.90</span>
+            </div>
+            <div class="cpc-row total">
+              <span>Total Estimate:</span>
+              <span id="cpcTotal">&#8377;74,659.55</span>
+            </div>
+          </div>
+          <button class="btn-primary-action" style="margin-top:1rem;width:100%;" onclick="window.AuroWeb.requestQuoteFromCalc()">
+            <i class="fa-solid fa-paper-plane"></i> Send Quote to a Specialist
+          </button>
+        </div>
+
+        <!-- Employee Cards Grid -->
+        <div class="emp-dir-grid">
+          <div class="emp-dir-card">
+            <div class="emp-dir-avatar" style="background:linear-gradient(135deg,#D4A017,#92400E);">RS</div>
+            <div class="emp-dir-info">
+              <h4>Rajesh Sharma</h4>
+              <span class="emp-role-badge">Senior Gemologist</span>
+              <p>IGI &amp; GIA Certified &bull; 22 yrs experience &bull; Bridal &amp; Solitaire Specialist</p>
+              <div class="emp-stat-row">
+                <span><i class="fa-solid fa-star" style="color:#D4A017;"></i> 4.9 (318 reviews)</span>
+                <span><i class="fa-solid fa-circle" style="color:#10B981;font-size:8px;"></i> Available Now</span>
+              </div>
+              <div class="emp-contact-row">
+                <button onclick="window.AuroWeb.contactEmployee('Rajesh Sharma')" class="emp-contact-btn"><i class="fa-solid fa-phone"></i> Call</button>
+                <button onclick="window.AuroWeb.contactEmployee('Rajesh Sharma','video')" class="emp-contact-btn video"><i class="fa-solid fa-video"></i> Video</button>
+                <button onclick="window.AuroWeb.sendPriceQuote('Rajesh Sharma')" class="emp-contact-btn quote"><i class="fa-solid fa-file-invoice"></i> Get Quote</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="emp-dir-card">
+            <div class="emp-dir-avatar" style="background:linear-gradient(135deg,#0F9D58,#064E3B);">PM</div>
+            <div class="emp-dir-info">
+              <h4>Priya Menon</h4>
+              <span class="emp-role-badge" style="background:#E8F5E9;color:#064E3B;">Gold Investment Advisor</span>
+              <p>SEBI Registered &bull; Digital Gold Specialist &bull; SIP &amp; Bullion Portfolio Planning</p>
+              <div class="emp-stat-row">
+                <span><i class="fa-solid fa-star" style="color:#D4A017;"></i> 4.8 (241 reviews)</span>
+                <span><i class="fa-solid fa-circle" style="color:#10B981;font-size:8px;"></i> Available Now</span>
+              </div>
+              <div class="emp-contact-row">
+                <button onclick="window.AuroWeb.contactEmployee('Priya Menon')" class="emp-contact-btn"><i class="fa-solid fa-phone"></i> Call</button>
+                <button onclick="window.AuroWeb.contactEmployee('Priya Menon','video')" class="emp-contact-btn video"><i class="fa-solid fa-video"></i> Video</button>
+                <button onclick="window.AuroWeb.sendPriceQuote('Priya Menon')" class="emp-contact-btn quote"><i class="fa-solid fa-file-invoice"></i> Get Quote</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="emp-dir-card">
+            <div class="emp-dir-avatar" style="background:linear-gradient(135deg,#2563EB,#1E3A8A);">VK</div>
+            <div class="emp-dir-info">
+              <h4>Vikram Kumar</h4>
+              <span class="emp-role-badge" style="background:#EFF6FF;color:#1E3A8A;">Custom Design Head</span>
+              <p>CAD Master &bull; 3D Jewelry Rendering &bull; Heritage Restoration Expert</p>
+              <div class="emp-stat-row">
+                <span><i class="fa-solid fa-star" style="color:#D4A017;"></i> 4.9 (187 reviews)</span>
+                <span><i class="fa-solid fa-circle" style="color:#FBBF24;font-size:8px;"></i> Busy till 3PM</span>
+              </div>
+              <div class="emp-contact-row">
+                <button onclick="window.AuroWeb.contactEmployee('Vikram Kumar')" class="emp-contact-btn"><i class="fa-solid fa-phone"></i> Call</button>
+                <button onclick="window.AuroWeb.contactEmployee('Vikram Kumar','video')" class="emp-contact-btn video"><i class="fa-solid fa-video"></i> Video</button>
+                <button onclick="window.AuroWeb.sendPriceQuote('Vikram Kumar')" class="emp-contact-btn quote"><i class="fa-solid fa-file-invoice"></i> Get Quote</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="emp-dir-card">
+            <div class="emp-dir-avatar" style="background:linear-gradient(135deg,#9333EA,#4C1D95);">AL</div>
+            <div class="emp-dir-info">
+              <h4>Ananya Lakshmi</h4>
+              <span class="emp-role-badge" style="background:#F5F3FF;color:#4C1D95;">Hallmarking Officer</span>
+              <p>BIS Certified Assayer &bull; Purity Testing &bull; Old Gold Exchange &amp; Valuation</p>
+              <div class="emp-stat-row">
+                <span><i class="fa-solid fa-star" style="color:#D4A017;"></i> 4.7 (203 reviews)</span>
+                <span><i class="fa-solid fa-circle" style="color:#10B981;font-size:8px;"></i> Available Now</span>
+              </div>
+              <div class="emp-contact-row">
+                <button onclick="window.AuroWeb.contactEmployee('Ananya Lakshmi')" class="emp-contact-btn"><i class="fa-solid fa-phone"></i> Call</button>
+                <button onclick="window.AuroWeb.contactEmployee('Ananya Lakshmi','video')" class="emp-contact-btn video"><i class="fa-solid fa-video"></i> Video</button>
+                <button onclick="window.AuroWeb.sendPriceQuote('Ananya Lakshmi')" class="emp-contact-btn quote"><i class="fa-solid fa-file-invoice"></i> Get Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. GOLD SIP (AUTO-INVEST) SECTION -->
+  <section class="web-section bg-emerald-dark" id="sip-section">
+    <div class="section-container">
+      <div class="sip-grid-layout">
+        
+        <div class="sip-text-col">
+          <span class="section-badge">Automated Wealth Building</span>
+          <h2>Auro Gold SIP: Save Daily Without Thinking</h2>
+          <p>
+            Build generational wealth by rupee-cost averaging the gold market. Set up automated daily, weekly, or monthly investments via UPI AutoPay.
+          </p>
+
+          <div class="sip-features-list">
+            <div class="sip-feature-item">
+              <div class="sfi-icon"><i class="fa-solid fa-check"></i></div>
+              <div>
+                <strong>Invest as little as ₹50/day</strong>
+                <span>Fractional digital gold added to your locker every single morning.</span>
+              </div>
+            </div>
+            <div class="sip-feature-item">
+              <div class="sfi-icon"><i class="fa-solid fa-check"></i></div>
+              <div>
+                <strong>Zero Lock-in Period & Zero Penalties</strong>
+                <span>Pause, skip installments, or cancel your SIP anytime with 1-click.</span>
+              </div>
+            </div>
+            <div class="sip-feature-item">
+              <div class="sfi-icon"><i class="fa-solid fa-check"></i></div>
+              <div>
+                <strong>Auto-Debit via Google Pay, PhonePe & BHIM</strong>
+                <span>Seamless recurring UPI e-Mandate approval on your phone.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive SIP Calculator -->
+        <div class="sip-calculator-panel">
+          <h3><i class="fa-solid fa-calculator" style="color:var(--gold-primary);"></i> SIP Wealth Projection</h3>
+
+          <div class="sip-calc-field">
+            <label>Daily Investment Amount</label>
+            <div class="sip-slider-val">
+              <span>₹<span id="sipValDisplay">200</span></span>
+              <small>/ day</small>
+            </div>
+            <input type="range" class="range-slider" id="sipRangeInput" min="50" max="2000" step="50" value="200" oninput="window.AuroWeb.calcSipProjection()">
+          </div>
+
+          <div class="sip-duration-tabs">
+            <button class="sd-tab" onclick="window.AuroWeb.setSipDuration(1, this)">1 Year</button>
+            <button class="sd-tab active" onclick="window.AuroWeb.setSipDuration(3, this)">3 Years</button>
+            <button class="sd-tab" onclick="window.AuroWeb.setSipDuration(5, this)">5 Years</button>
+          </div>
+
+          <div class="sip-projection-card">
+            <div class="sp-box">
+              <span>Total Capital Saved</span>
+              <strong id="sipCapitalSaved">₹2,19,000</strong>
+            </div>
+            <div class="sp-box gold">
+              <span>Projected Gold Value*</span>
+              <strong id="sipProjectedVal">₹2,84,500</strong>
+              <small id="sipGramsEst">~39.2 grams 24K</small>
+            </div>
+          </div>
+
+          <button class="btn-primary-action" style="width:100%;" onclick="window.AuroWeb.startSipFlow()">
+            <i class="fa-solid fa-repeat"></i> Start Daily SIP With ₹<span id="sipBtnAmt">200</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. JEWELRY REDEMPTION & PHYSICAL COINS CATALOG (EXPANDED TO 8 PRODUCTS) -->
+  <section class="web-section" id="jewelry-section">
+    <div class="section-container">
+      <div class="section-head">
+        <span class="section-badge">Physical Gold Fulfillment</span>
+        <h2 class="section-title-large">Redeem Vault Gold for Jewelry & Coins</h2>
+        <p class="section-subtitle-text">Exchange your digital gold balance for pure hallmarked physical gold with 100% insured delivery to your doorstep.</p>
+      </div>
+
+      <div class="catalog-filter-bar">
+        <button class="cf-btn active" onclick="window.AuroWeb.filterCatalog('all', this)">All Collections</button>
+        <button class="cf-btn" onclick="window.AuroWeb.filterCatalog('coins', this)">24K Minted Coins & Bars</button>
+        <button class="cf-btn" onclick="window.AuroWeb.filterCatalog('necklaces', this)">Heritage Necklaces</button>
+        <button class="cf-btn" onclick="window.AuroWeb.filterCatalog('bangles', this)">Royal Bangles & Kadas</button>
+        <button class="cf-btn" onclick="window.AuroWeb.filterCatalog('rings', this)">Diamond & Solitaire Rings</button>
+      </div>
+
+      <div class="products-web-grid" id="productsGrid">
+        
+        <!-- Product 1 -->
+        <div class="web-product-card" data-cat="coins">
+          <div class="wpc-thumb" style="padding:0; overflow:hidden;">
+            <span class="wpc-tag">24K 999.9 PURE</span>
+            <img src="assets/coin.jpg" alt="Auro 24K Lakshmi Gold Coin" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s ease;">
+          </div>
+          <div class="wpc-details">
+            <h4>Auro 24K Lakshmi Gold Coin</h4>
+            <div class="wpc-purity-row">
+              <span>Weight: 10.000 g</span>
+              <span>Assayed & Certified</span>
+            </div>
+            <div class="wpc-price-bar">
+              <span class="wpc-price">₹75,500</span>
+              <span class="wpc-redeem-chip"><i class="fa-solid fa-vault"></i> Redeem 10.0g</span>
+            </div>
+            <button class="btn-redeem-gold" onclick="window.AuroWeb.openRedeemModal('coin1')">
+              <i class="fa-solid fa-truck"></i> Deliver to Home
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="web-product-card" data-cat="necklaces">
+          <div class="wpc-thumb" style="padding:0; overflow:hidden;">
+            <span class="wpc-tag">22K 916 HALLMARKED</span>
+            <img src="assets/necklace.jpg" alt="Heritage Filigree Gold Choker" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s ease;">
+          </div>
+          <div class="wpc-details">
+            <h4>Heritage Filigree Gold Choker</h4>
+            <div class="wpc-purity-row">
+              <span>Weight: 15.50 g</span>
+              <span>BIS Hallmarked</span>
+            </div>
+            <div class="wpc-price-bar">
+              <span class="wpc-price">₹1,12,400</span>
+              <span class="wpc-redeem-chip"><i class="fa-solid fa-vault"></i> Redeem 15.5g</span>
+            </div>
+            <button class="btn-redeem-gold" onclick="window.AuroWeb.openRedeemModal('neck15')">
+              <i class="fa-solid fa-truck"></i> Deliver to Home
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="web-product-card" data-cat="bangles">
+          <div class="wpc-thumb" style="padding:0; overflow:hidden;">
+            <span class="wpc-tag">22K 916 HALLMARKED</span>
+            <img src="assets/kadas.jpg" alt="Royal Peacock Gold Kada (Pair)" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s ease;">
+          </div>
+          <div class="wpc-details">
+            <h4>Royal Peacock Gold Kada (Pair)</h4>
+            <div class="wpc-purity-row">
+              <span>Weight: 24.00 g</span>
+              <span>BIS Hallmarked</span>
+            </div>
+            <div class="wpc-price-bar">
+              <span class="wpc-price">₹1,74,200</span>
+              <span class="wpc-redeem-chip"><i class="fa-solid fa-vault"></i> Redeem 24.0g</span>
+            </div>
+            <button class="btn-redeem-gold" onclick="window.AuroWeb.openRedeemModal('kada24')">
+              <i class="fa-solid fa-truck"></i> Deliver to Home
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="web-product-card" data-cat="coins">
+          <div class="wpc-thumb">
+            <span class="wpc-tag">24K 999.9 PURE</span>
+            <div class="wpc-visual-coin"><i class="fa-solid fa-crown"></i></div>
+          </div>
+          <div class="wpc-details">
+            <h4>Auro 5g Minted Gold Bar</h4>
+            <div class="wpc-purity-row">
+              <span>Weight: 5.000 g</span>
+              <span>CertiCard Blister</span>
+            </div>
+            <div class="wpc-price-bar">
+              <span class="wpc-price">₹37,900</span>
+              <span class="wpc-redeem-chip"><i class="fa-solid fa-vault"></i> Redeem 5.00g</span>
+            </div>
+            <button class="btn-redeem-gold" onclick="window.AuroWeb.openRedeemModal('bar5')">
+              <i class="fa-solid fa-truck"></i> Deliver to Home
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 5 (New) -->
+        <div class="web-product-card" data-cat="necklaces">
+          <div class="wpc-thumb">
+            <span class="wpc-tag">22K 916 TEMPLE</span>
+            <div class="wpc-visual-jewelry"><i class="fa-solid fa-gem"></i></div>
+          </div>
+          <div class="wpc-details">
+            <h4>Navratna Kasumala Royal Haar</h4>
+            <div class="wpc-purity-row">
+              <span>Weight: 32.00 g</span>
+              <span>Antique Finish</span>
+            </div>
+            <div class="wpc-price-bar">
+              <span class="wpc-price">₹2,32,000</span>
+              <span class="wpc-redeem-chip"><i class="fa-solid fa-vault"></i> Redeem 32.0g</span>
+            </div>
+            <button class="btn-redeem-gold" onclick="window.AuroWeb.openRedeemModal('haar32')">
+              <i class="fa-solid fa-truck"></i> Deliver to Home
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 6 (New) -->
+        <div class="web-product-card" data-cat="rings">
+          <div class="wpc-thumb" style="padding:0; overflow:hidden;">
+            <span class="wpc-tag">18K SOLITAIRE</span>
+            <img src="assets/ring.jpg" alt="Eternal Solitaire Diamond Ring" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s ease;">
+          </div>
+          <div class="wpc-details">
+            <h4>Eternal Solitaire Diamond Ring</h4>
+            <div class="wpc-purity-row">
+              <span>Weight: 4.80 g</span>
+              <span>VVS-EF Diamond</span>
+            </div>
+            <div class="wpc-price-bar">
+              <span class="wpc-price">₹54,900</span>
+              <span class="wpc-redeem-chip"><i class="fa-solid fa-vault"></i> Redeem 4.8g</span>
+            </div>
+            <button class="btn-redeem-gold" onclick="window.AuroWeb.openRedeemModal('ring4')">
+              <i class="fa-solid fa-truck"></i> Deliver to Home
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 7 (New) -->
+        <div class="web-product-card" data-cat="bangles">
+          <div class="wpc-thumb">
+            <span class="wpc-tag">22K 916 CZ</span>
+            <div class="wpc-visual-jewelry"><i class="fa-solid fa-dharmachakra"></i></div>
+          </div>
+          <div class="wpc-details">
+            <h4>Aura Floral Studded Gold Bangles</h4>
+            <div class="wpc-purity-row">
+              <span>Weight: 18.20 g</span>
+              <span>Set of 2 Pieces</span>
+            </div>
+            <div class="wpc-price-bar">
+              <span class="wpc-price">₹1,32,100</span>
+              <span class="wpc-redeem-chip"><i class="fa-solid fa-vault"></i> Redeem 18.2g</span>
+            </div>
+            <button class="btn-redeem-gold" onclick="window.AuroWeb.openRedeemModal('bangle18')">
+              <i class="fa-solid fa-truck"></i> Deliver to Home
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 8 (New) -->
+        <div class="web-product-card" data-cat="coins">
+          <div class="wpc-thumb">
+            <span class="wpc-tag">24K 999.9 PURE</span>
+            <div class="wpc-visual-coin"><i class="fa-solid fa-award"></i></div>
+          </div>
+          <div class="wpc-details">
+            <h4>Auro 10g 24K Lord Ganesha Coin</h4>
+            <div class="wpc-purity-row">
+              <span>Weight: 10.000 g</span>
+              <span>Assay Certified</span>
+            </div>
+            <div class="wpc-price-bar">
+              <span class="wpc-price">₹75,500</span>
+              <span class="wpc-redeem-chip"><i class="fa-solid fa-vault"></i> Redeem 10.0g</span>
+            </div>
+            <button class="btn-redeem-gold" onclick="window.AuroWeb.openRedeemModal('coin10')">
+              <i class="fa-solid fa-truck"></i> Deliver to Home
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. SECURITY & INSTITUTIONAL TRUST -->
+  <section class="web-section bg-light-tint" id="security-section">
+    <div class="section-container">
+      <div class="section-head">
+        <span class="section-badge">Bank-Grade Compliance</span>
+        <h2 class="section-title-large">Uncompromising Gold Custody & Safety</h2>
+        <p class="section-subtitle-text">Every single gram is legally protected, insured, and verified by regulatory authorities.</p>
+      </div>
+
+      <div class="steps-cards-grid">
+        <div class="step-card">
+          <div class="step-icon-wrap"><i class="fa-solid fa-vault"></i></div>
+          <h3>Brink's India Custody</h3>
+          <p>World leader in secure logistics. Your gold is vaulted in fortified subterranean vaults with 24/7 armed monitoring.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num-bubble" style="background:#108E58; color:#FFF;"><i class="fa-solid fa-check"></i></div>
+          <div class="step-icon-wrap"><i class="fa-solid fa-building-columns"></i></div>
+          <h3>IDBI Security Trustee</h3>
+          <p>An independent SEBI-regulated trustee holds the first charge over all physical gold on behalf of our investors.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-icon-wrap"><i class="fa-solid fa-certificate"></i></div>
+          <h3>NABL Lab Hallmarking</h3>
+          <p>Refined by government-licensed refineries with 99.99% purity guaranteed, accompanied by serialized assay certificates.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>100% Transit Insurance</h3>
+          <p>Every home delivery is fully insured against theft and loss, shipped in tamper-evident sealed packaging.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. USER & EMPLOYEE LOGIN MODAL -->
+  <div class="web-modal-overlay" id="authModal">
+    <div class="modal-content-card" style="max-width: 480px;">
+      <div class="modal-header">
+        <h3 id="authModalTitle"><i class="fa-solid fa-user-lock"></i> Auro Gold Authentication</h3>
+        <button class="modal-close-btn" onclick="window.AuroWeb.closeModals()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Tab selector between User & Employee -->
+        <div class="unit-mode-toggle" style="background:#F1F5F3;">
+          <button class="um-btn active" id="btnAuthTabUser" onclick="window.AuroWeb.switchAuthTab('user')">Investor / User Login</button>
+          <button class="um-btn" id="btnAuthTabEmployee" onclick="window.AuroWeb.switchAuthTab('employee')">Staff / Employee Login</button>
+        </div>
+
+        <!-- User Login Form -->
+        <div id="userLoginForm" style="display:flex; flex-direction:column; gap:12px;">
+          <div>
+            <label style="font-size:0.75rem; font-weight:700; color:#586960; text-transform:uppercase;">Mobile Number</label>
+            <input type="tel" id="userLoginPhone" value="9876543210" placeholder="10-digit mobile number" style="width:100%; padding:10px 14px; border:1.5px solid #E5ECE7; border-radius:8px; font-weight:700; outline:none;">
+          </div>
+          <div>
+            <label style="font-size:0.75rem; font-weight:700; color:#586960; text-transform:uppercase;">6-Digit OTP / Password</label>
+            <input type="password" id="userLoginPass" value="123456" placeholder="Enter OTP or Password" style="width:100%; padding:10px 14px; border:1.5px solid #E5ECE7; border-radius:8px; outline:none;">
+          </div>
+          <button class="btn-primary-action" onclick="window.AuroWeb.processUserLogin()">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> Login as Santhosh G (Investor)
+          </button>
+        </div>
+
+        <!-- Employee Login Form -->
+        <div id="employeeLoginForm" style="display:none; flex-direction:column; gap:12px;">
+          <div style="background:#E8F5E9; padding:8px 12px; border-radius:8px; font-size:0.75rem; color:#1E4620;">
+            <i class="fa-solid fa-shield"></i> Authorized bullion operations, vault custodian, & custom order portal.
+          </div>
+          <div>
+            <label style="font-size:0.75rem; font-weight:700; color:#586960; text-transform:uppercase;">Employee ID / Corporate Email</label>
+            <input type="text" id="empLoginId" value="EMP-8024 (Rajesh Sharma)" placeholder="EMP-XXXX" style="width:100%; padding:10px 14px; border:1.5px solid #E5ECE7; border-radius:8px; font-weight:700; outline:none;">
+          </div>
+          <div>
+            <label style="font-size:0.75rem; font-weight:700; color:#586960; text-transform:uppercase;">Security Token / Pin</label>
+            <input type="password" id="empLoginPass" value="bullion2026" placeholder="Vault Access Key" style="width:100%; padding:10px 14px; border:1.5px solid #E5ECE7; border-radius:8px; outline:none;">
+          </div>
+          <button class="btn-primary-action" style="background:#108E58; color:#FFF;" onclick="window.AuroWeb.processEmployeeLogin()">
+            <i class="fa-solid fa-lock-open"></i> Access Staff Management Dashboard
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. EMPLOYEE ADMIN & CRM PORTAL MODAL -->
+  <div class="employee-panel-modal" id="employeePortalModal">
+    <div class="employee-window">
+      <div class="employee-header">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span class="emp-badge"><i class="fa-solid fa-shield-halved"></i> STAFF SECURE</span>
+          <h3 style="font-size:1.15rem; color:#FFF;">Auro Gold Management Portal & Order Console</h3>
+        </div>
+        <button class="modal-close-btn" style="color:#FFF;" onclick="window.AuroWeb.closeEmployeePortal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="employee-content">
+        
+        <!-- Top Metrics for Staff -->
+        <div class="emp-metrics-grid">
+          <div class="emp-card">
+            <span>Total Brink's Vault Reserve</span>
+            <strong>482.40 kg</strong>
+          </div>
+          <div class="emp-card">
+            <span>Today's Total Bullion Volume</span>
+            <strong>₹18,45,200</strong>
+          </div>
+          <div class="emp-card">
+            <span>Pending Dispatch Orders</span>
+            <strong style="color:#FBBF24;">14 Shipments</strong>
+          </div>
+          <div class="emp-card">
+            <span>Custom Studio Requests</span>
+            <strong style="color:#34D399;">6 Active CADs</strong>
+          </div>
+        </div>
+
+        <!-- Live Orders Queue -->
+        <h4 style="font-size:0.95rem; color:var(--gold-light);">Live Customer Dispatch Queue & Custom Studio Orders</h4>
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; overflow-x:auto;">
+          <table class="emp-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Item / Spec</th>
+                <th>Gold Weight</th>
+                <th>Delivery Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="empOrdersTableBody">
+              <tr>
+                <td>#AUG-9824</td>
+                <td>Santhosh G</td>
+                <td>24K Lakshmi Gold Coin</td>
+                <td>1.000 g</td>
+                <td><span style="color:#FBBF24;">In Transit (BlueDart)</span></td>
+                <td><button style="padding:4px 8px; border-radius:4px; background:#108E58; color:#FFF; border:none; cursor:pointer;" onclick="alert('Tracking ID updated: BD-849102')">Track</button></td>
+              </tr>
+              <tr>
+                <td>#CAD-5021</td>
+                <td>Priya R</td>
+                <td>Custom Solitaire Ring (Rose Gold)</td>
+                <td>6.250 g</td>
+                <td><span style="color:#38BDF8;">CAD Approval</span></td>
+                <td><button style="padding:4px 8px; border-radius:4px; background:var(--gold-primary); color:#081B13; border:none; cursor:pointer;" onclick="alert('CAD file dispatched to client preview.')">Review</button></td>
+              </tr>
+              <tr>
+                <td>#CON-1092</td>
+                <td>Vikram S</td>
+                <td>Bridal Set Gemologist Video Call</td>
+                <td>45.000 g</td>
+                <td><span style="color:#34D399;">Confirmed Slot</span></td>
+                <td><button style="padding:4px 8px; border-radius:4px; background:#2563EB; color:#FFF; border:none; cursor:pointer;" onclick="alert('Launching Meet Session...')">Launch</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end;">
+          <button style="background:transparent; border:1px solid #F87171; color:#F87171; padding:8px 16px; border-radius:6px; cursor:pointer;" onclick="window.AuroWeb.closeEmployeePortal()">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out of Staff Console
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 12. INTERACTIVE VAULT MODAL -->
+  <div class="web-modal-overlay" id="vaultModal">
+    <div class="modal-content-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-vault" style="color:var(--gold-primary);"></i> My 24K Gold Vault</h3>
+        <button class="modal-close-btn" onclick="window.AuroWeb.closeModals()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        
+        <div style="background:linear-gradient(135deg, #0F2F22, #081B13); color:#FFF; padding:1.5rem; border-radius:16px; text-align:center;">
+          <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:#F9E7B3;">Total Vault Holdings</span>
+          <div style="font-size:2.2rem; font-weight:800; margin:4px 0;"><span id="modalVaultGrams">12.4580</span> <small style="font-size:1rem; color:#D4A017;">grams</small></div>
+          <div style="font-size:0.95rem; color:#E2E8F0;">Market Value: <strong>₹<span id="modalVaultValue">90,302.26</span></strong></div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div style="background:#F8FAF8; border:1px solid #E5ECE7; padding:12px; border-radius:10px;">
+            <span style="font-size:0.72rem; color:#586960; display:block;">Purity Rating</span>
+            <strong style="color:#081B13; font-size:0.95rem;">24K 999.9 Fine Gold</strong>
+          </div>
+          <div style="background:#F8FAF8; border:1px solid #E5ECE7; padding:12px; border-radius:10px;">
+            <span style="font-size:0.72rem; color:#586960; display:block;">Locker Trustee</span>
+            <strong style="color:#081B13; font-size:0.95rem;">IDBI Trusteeship</strong>
+          </div>
+        </div>
+
+        <h4 style="font-size:0.95rem; color:#081B13; margin-top:8px;">Recent Passbook Ledger</h4>
+        <div style="display:flex; flex-direction:column; gap:8px;" id="modalPassbookLedger">
+          <div style="display:flex; justify-content:space-between; padding:10px 12px; background:#F8FAF8; border-radius:8px; border:1px solid #E5ECE7;">
+            <div>
+              <strong style="font-size:0.85rem; color:#081B13; display:block;">Bought 24K Digital Gold</strong>
+              <small style="color:#8A9C93;">Today • Online UPI • Tx: #AUG-9824</small>
+            </div>
+            <div style="text-align:right;">
+              <strong style="color:#108E58; font-size:0.9rem;">+0.1380 g</strong>
+              <small style="display:block; color:#8A9C93;">₹1,000</small>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;">
+          <button class="btn-primary-action" onclick="window.AuroWeb.closeModals(); window.AuroWeb.scrollToBuy();">
+            <i class="fa-solid fa-plus"></i> Buy More Gold
+          </button>
+          <button style="background:#FFF; border:1.5px solid #081B13; color:#081B13; border-radius:10px; font-weight:700; cursor:pointer;" onclick="window.AuroWeb.downloadCertificate()">
+            <i class="fa-solid fa-download"></i> Certificate (PDF)
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 13. PAYMENT / ORDER MODAL -->
+  <div class="web-modal-overlay" id="paymentModal">
+    <div class="modal-content-card">
+      <div class="modal-header">
+        <h3 id="paymentModalTitle">Authorize Gold Purchase</h3>
+        <button class="modal-close-btn" onclick="window.AuroWeb.closeModals()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        
+        <div style="background:#F4F8F5; border:1px solid #E5ECE7; border-radius:12px; padding:1.25rem; text-align:center;">
+          <span style="font-size:0.75rem; color:#586960; text-transform:uppercase;">Order Summary</span>
+          <div style="font-size:1.8rem; font-weight:800; color:#081B13; margin:4px 0;"><span id="payModalGrams">0.1380</span> <small style="color:#D4A017;">grams</small></div>
+          <span style="font-size:1rem; font-weight:700; color:#081B13;">Total: ₹<span id="payModalAmount">1,000.00</span></span>
+        </div>
+
+        <h4 style="font-size:0.88rem; text-transform:uppercase; color:#081B13;">Select Payment Method</h4>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <label style="display:flex; align-items:center; gap:12px; padding:12px; border:1.5px solid #D4A017; background:#FDF9EE; border-radius:10px; cursor:pointer;">
+            <input type="radio" name="payMethod" checked>
+            <i class="fa-brands fa-google-pay" style="font-size:24px; color:#1A73E8;"></i>
+            <div>
+              <strong style="display:block; font-size:0.9rem;">Instant UPI / Google Pay</strong>
+              <small style="color:#586960;">Fast 1-click confirmation</small>
+            </div>
+          </label>
+          <label style="display:flex; align-items:center; gap:12px; padding:12px; border:1px solid #E5ECE7; border-radius:10px; cursor:pointer;">
+            <input type="radio" name="payMethod">
+            <i class="fa-solid fa-building-columns" style="font-size:20px; color:#108E58;"></i>
+            <div>
+              <strong style="display:block; font-size:0.9rem;">Net Banking / Debit Card</strong>
+              <small style="color:#586960;">All Indian Banks Supported</small>
+            </div>
+          </label>
+        </div>
+
+        <button class="btn-primary-action" onclick="window.AuroWeb.processPaymentConfirm()">
+          <i class="fa-solid fa-lock"></i> Authorize & Deposit Gold
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14. PHYSICAL REDEMPTION DELIVERY MODAL -->
+  <div class="web-modal-overlay" id="redeemModal">
+    <div class="modal-content-card">
+      <div class="modal-header">
+        <h3>Physical Gold Delivery Order</h3>
+        <button class="modal-close-btn" onclick="window.AuroWeb.closeModals()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <div style="display:flex; align-items:center; gap:12px; background:#F4F8F5; padding:12px; border-radius:10px;">
+          <div style="width:40px; height:40px; border-radius:50%; background:#D4A017; color:#FFF; display:flex; align-items:center; justify-content:center; font-size:18px;">
+            <i class="fa-solid fa-gem"></i>
+          </div>
+          <div>
+            <strong id="redeemItemTitle" style="font-size:0.95rem; color:#081B13;">Auro 24K Lakshmi Gold Coin</strong>
+            <small style="display:block; color:#586960;" id="redeemItemWeight">Weight: 1.000 g • 24K 999.9</small>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div>
+            <label style="font-size:0.75rem; font-weight:700; color:#586960; text-transform:uppercase; margin-bottom:4px; display:block;">Recipient Full Name</label>
+            <input type="text" value="Santhosh G" style="width:100%; padding:10px; border:1px solid #E5ECE7; border-radius:8px; outline:none;">
+          </div>
+          <div>
+            <label style="font-size:0.75rem; font-weight:700; color:#586960; text-transform:uppercase; margin-bottom:4px; display:block;">Shipping Address</label>
+            <input type="text" value="Flat 402, Royal Palms, Koramangala 4th Block" style="width:100%; padding:10px; border:1px solid #E5ECE7; border-radius:8px; outline:none;">
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <div>
+              <label style="font-size:0.75rem; font-weight:700; color:#586960; text-transform:uppercase; margin-bottom:4px; display:block;">City</label>
+              <input type="text" value="Bengaluru" style="width:100%; padding:10px; border:1px solid #E5ECE7; border-radius:8px; outline:none;">
+            </div>
+            <div>
+              <label style="font-size:0.75rem; font-weight:700; color:#586960; text-transform:uppercase; margin-bottom:4px; display:block;">Pincode</label>
+              <input type="text" value="560034" style="width:100%; padding:10px; border:1px solid #E5ECE7; border-radius:8px; outline:none;">
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#E8F5E9; padding:10px; border-radius:8px; font-size:0.78rem; color:#1E4620; display:flex; gap:8px;">
+          <i class="fa-solid fa-shield-halved" style="color:#108E58; font-size:16px;"></i>
+          <span>100% Insured Delivery via BlueDart. Requires OTP verification at doorstep.</span>
+        </div>
+
+        <button class="btn-primary-action" onclick="window.AuroWeb.confirmDispatch()">
+          <i class="fa-solid fa-truck"></i> Confirm Dispatch from Vault
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15. FULL FOOTER -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <div class="brand-wrap">
+            <div class="brand-emblem"><i class="fa-solid fa-gem"></i></div>
+            <div class="brand-text">
+              <span class="brand-title">AURO GOLD</span>
+              <span class="brand-sub">INVEST IN TIMELESS PURITY</span>
+            </div>
+          </div>
+          <p>
+            India's premier 24K digital gold, bespoke jewelry design studio, and certified bullion investment ecosystem.
+          </p>
+          <div style="display:flex; gap:12px; font-size:18px; color:#D4A017;">
+            <i class="fa-brands fa-whatsapp"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-brands fa-twitter"></i>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Bullion & Trading</h4>
+          <ul>
+            <li><a href="#buy-section">Buy 24K Digital Gold</a></li>
+            <li><a href="#buy-section">Sell Gold Anytime</a></li>
+            <li><a href="#sip-section">Daily Gold SIP</a></li>
+            <li><a href="#chart-section">Live MCX Bullion Rates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Custom & Jewelry</h4>
+          <ul>
+            <li><a href="#custom-studio-section">Bespoke Design Studio</a></li>
+            <li><a href="#consulting-section">Gemologist Consultation</a></li>
+            <li><a href="#jewelry-section">Catalog Collections</a></li>
+            <li><a href="#security-section">Doorstep Insured Delivery</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Access & Support</h4>
+          <ul>
+            <li><a href="#" onclick="window.AuroWeb.openLoginModal('user'); return false;">Investor Login</a></li>
+            <li><a href="#" onclick="window.AuroWeb.openLoginModal('employee'); return false;">Employee Portal</a></li>
+            <li><a href="#security-section">Brink's Vault Audit</a></li>
+            <li><a href="#">Toll-Free: 1800-AURO-GOLD</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>© 2026 Auro Gold Bullion Pvt. Ltd. All rights reserved. 24K 999.9 Hallmarked.</span>
+        <div style="display:flex; gap:20px;">
+          <a href="#" style="color:#A3B8AD; text-decoration:none;">Privacy Policy</a>
+          <a href="#" style="color:#A3B8AD; text-decoration:none;">Terms of Service</a>
+          <a href="#" style="color:#A3B8AD; text-decoration:none;">Vault Trust Deed</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="web.js"></script>
+</body>
+</html>
